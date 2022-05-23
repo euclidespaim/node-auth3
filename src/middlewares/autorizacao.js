@@ -8,3 +8,5 @@ module.exports = (cargosObrigatorios) => (requisicao, resposta, proximo) => {
   }
   proximo()
 }
+
+// Function composition is an approach where the result of one function is passed on to the next function, which is passed to another until the final function is executed for the final result.
