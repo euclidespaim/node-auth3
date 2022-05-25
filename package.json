@@ -5,11 +5,11 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "lint": "eslint ./src/** app.js database.js rotas.js server.js",
-    "start": "node server.js"
+    "lint": "eslint ./src/** app.js database.js rotas.js server.js"
   },
   "license": "ISC",
   "dependencies": {
+    "accesscontrol": "^2.2.1",
     "auth3": "^1.0.4",
     "bcrypt": "^3.0.8",
     "body-parser": "^1.19.0",
