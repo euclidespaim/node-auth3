@@ -36,6 +36,5 @@ module.exports = (entidade, acao) => (requisicao, resposta, proximo) => {
       atributos: permissaoApenasSeu.attributes
     }
   }
-
   proximo()
 }
