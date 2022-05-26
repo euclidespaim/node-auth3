@@ -33,4 +33,4 @@
         
 * Leitor
 
-     >Pessoas que podem apenas ler os posts feitos por qualquer pessoa. Não possuem nenhuma permissão em relação a usuários, ou outras ações com posts, como cadastrar ou apagar
+     >Pessoas que podem apenas ler os posts feitos por qualquer pessoa. Não possuem nenhuma permissão em relação a usuários, ou outras ações com posts, como cadastrar ou apagar.
