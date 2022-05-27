@@ -47,9 +47,9 @@ class ConversorPost extends Conversor {
 class ConversorUsuario extends Conversor {
   constructor(tipoDeConteudo, camposExtras = []) {
     super();
-    this.tipoDeConteudo = tipoDeConteudo;
-    this.camposPublicos = ["nome"].concat(camposExtras);
+    this.tipoDeConteudo = tipoDeConteudo
+    this.camposPublicos = ["nome"].concat(camposExtras)
   }
 }
 
-module.exports = { ConversorPost, ConversorUsuario };
+module.exports = { ConversorPost, ConversorUsuario }
