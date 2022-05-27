@@ -1,55 +1,55 @@
 class Conversor {
-    converter (dados) {
-        if (this.camposPublicos.indexOf('*') === -1) {
-            dados = this.filtrar(dados)
-        }
-
-        if (this.tipoDeConteudo === 'json') {
-            return this.json(dados)
-        }
+  converter(dados) {
+    if (this.camposPublicos.indexOf("*") === -1) {
+      dados = this.filtrar(dados);
     }
 
-    json (dados) {
-        return JSON.stringify(dados)
+    if (this.tipoDeConteudo === "json") {
+      return this.json(dados);
+    }
+  }
+
+  json(dados) {
+    return JSON.stringify(dados);
+  }
+
+  filtrar(dados) {
+    if (Array.isArray(dados)) {
+      dados = dados.map((post) => this.filtrarObjeto(post));
+    } else {
+      dados = this.filtrarObjeto(dados);
     }
 
-    filtrar (dados) {
-        if (Array.isArray(dados)) {
-            dados = dados.map((post) => this.filtrarObjeto(post))
-        } else {
-            dados = this.filtrarObjeto(dados)
-        }
+    return dados;
+  }
 
-        return dados
-    }
+  filtrarObjeto(objeto) {
+    const objetoFiltrado = {};
 
-    filtrarObjeto (objeto) {
-        const objetoFiltrado = {}
+    this.camposPublicos.forEach((campo) => {
+      if (Reflect.has(objeto, campo)) {
+        objetoFiltrado[campo] = objeto[campo];
+      }
+    });
 
-        this.camposPublicos.forEach((campo) => {
-            if (Reflect.has(objeto, campo)) {
-                objetoFiltrado[campo] = objeto[campo]
-            }
-        })
-
-        return objetoFiltrado
-    }
+    return objetoFiltrado;
+  }
 }
 
 class ConversorPost extends Conversor {
-    constructor (tipoDeConteudo, camposExtras = []) {
-        super()
-        this.tipoDeConteudo = tipoDeConteudo
-        this.camposPublicos = ['titulo', 'conteudo'].concat(camposExtras)
-    }
+  constructor(tipoDeConteudo, camposExtras = []) {
+    super();
+    this.tipoDeConteudo = tipoDeConteudo;
+    this.camposPublicos = ["titulo", "conteudo"].concat(camposExtras);
+  }
 }
 
 class ConversorUsuario extends Conversor {
-    constructor (tipoDeConteudo, camposExtras = []) {
-        super()
-        this.tipoDeConteudo = tipoDeConteudo
-        this.camposPublicos = ['nome'].concat(camposExtras)
-    }
+  constructor(tipoDeConteudo, camposExtras = []) {
+    super();
+    this.tipoDeConteudo = tipoDeConteudo;
+    this.camposPublicos = ["nome"].concat(camposExtras);
+  }
 }
 
-module.exports = { ConversorPost, ConversorUsuario }
+module.exports = { ConversorPost, ConversorUsuario };
